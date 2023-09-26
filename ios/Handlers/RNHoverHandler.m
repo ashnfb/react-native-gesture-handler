@@ -16,7 +16,8 @@ typedef NS_ENUM(NSInteger, RNGestureHandlerHoverEffect) {
   RNGestureHandlerHoverEffectHightlight,
 };
 
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
+
+#if TARGET_OS_IOS && defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
     __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_4
 
 API_AVAILABLE(ios(13.4))
@@ -74,7 +75,7 @@ API_AVAILABLE(ios(13.4))
 #endif
 
 @implementation RNHoverGestureHandler {
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
+#if TARGET_OS_IOS && defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
     __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_4
   UIPointerInteraction *_pointerInteraction;
 #endif
@@ -83,7 +84,7 @@ API_AVAILABLE(ios(13.4))
 - (instancetype)initWithTag:(NSNumber *)tag
 {
   if ((self = [super initWithTag:tag])) {
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
+#if TARGET_OS_IOS && defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
     __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_4
     if (@available(iOS 13.4, *)) {
       _recognizer = [[RNBetterHoverGestureRecognizer alloc] initWithGestureHandler:self];
@@ -97,7 +98,7 @@ API_AVAILABLE(ios(13.4))
 
 - (void)bindToView:(UIView *)view
 {
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
+#if TARGET_OS_IOS && defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
     __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_4
   if (@available(iOS 13.4, *)) {
     [super bindToView:view];
@@ -108,7 +109,7 @@ API_AVAILABLE(ios(13.4))
 
 - (void)unbindFromView
 {
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
+#if TARGET_OS_IOS && defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
     __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_4
   if (@available(iOS 13.4, *)) {
     [super unbindFromView];
@@ -121,7 +122,7 @@ API_AVAILABLE(ios(13.4))
 {
   [super resetConfig];
 
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
+#if TARGET_OS_IOS && defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
     __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_4
   if (@available(iOS 13.4, *)) {
     RNBetterHoverGestureRecognizer *recognizer = (RNBetterHoverGestureRecognizer *)_recognizer;
@@ -134,7 +135,7 @@ API_AVAILABLE(ios(13.4))
 {
   [super configure:config];
 
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
+#if TARGET_OS_IOS && defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && defined(__IPHONE_13_4) && \
     __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_4
   if (@available(iOS 13.4, *)) {
     RNBetterHoverGestureRecognizer *recognizer = (RNBetterHoverGestureRecognizer *)_recognizer;
